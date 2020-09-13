@@ -7,43 +7,107 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mars News</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/css/style.css" type="text/css">
 </head>
 
 <body>
+  <!-- div for entire page -->
   <div class="container-fluid">
+    <!-- Title -->
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Latest News</a></p>
     </div>
-
+    <!-- Latest News Intro -->
     <div class="row">
         <div class="col-sm-12">
             <h2>Latest Mars News</h2>
         </div>
     </div>
+    <!-- Latest News Title -->
     <div class="row">
         <div class="col-sm-12">
             <h3>{{marsDoc.news_title}}</h3>
         </div>
     </div>
+    <!-- Latest News Info -->
     <div class="row">
         <div class="col-sm-12">
             <p>{{marsDoc.news_p}}</p>
         </div>
     </div>
 
-    <div class="col-md-9 col-sm-12">
-      <div class="col-sm-12">
-        <h2>Featured Mars Image</h2>
+    <!-- Featrued Image Title and Table Title -->
+    <div class="row">
+      <div class="col-md-9 col-sm-12">
+        <div class="col-sm-12">
+          <h2>Featured Mars Image</h2>
+        </div>
       </div>
-      <div class="col-sm-12">
-        <img src="{{ marsDoc.featured_image_url }}" alt="Featured Image">
-      </div>
-    </div>
-    
-    <div class="col-md-9 col-sm-12">
       
+      <div class="col-md-3 col-sm-12">
+        <div class="col-sm-12">
+          <h2>Mars Facts</h2>
+        </div>
+      </div>
     </div>
 
-  </div>
+    <!-- Featured Image and Mars Facts table -->
+    <div class="row">
+      <div class="col-md-9 col-sm-12">
+        <div class="col-sm-12 featuredImg">
+          <img class="img-fluid" src="{{ marsDoc.featured_image_url }}" alt="Featured Image">
+        </div>
+      </div>
+      
+      <div class="col-md-3 col-sm-12">
+        {{marsDoc.mars_table|safe}}    
+      </div>
+    </div>
+
+    <!-- Hemishpere Title -->
+    <div class="text-center"><h2>Mars Hemispheres</h2></div>
+    <!-- All four hemisphere figures and captions containing name -->
+    <div class="hemi row">
+      <div class="col-sm-6">
+        <figure class="figure">
+          <img src="{{ marsDoc.hemisphere_images[0].img_url }}" 
+          class="figure-img img-fluid rounded" alt="hemishpere">
+          <figcaption class="figure-caption"><h3>
+            {{marsDoc.hemisphere_images[0].title}}</h3>
+          </figcaption>
+        </figure>
+      </div><!-- /first hemisphere  -->
+      <div class="col-sm-6">
+        <figure class="figure">
+          <img src="{{ marsDoc.hemisphere_images[1].img_url }}" 
+          class="figure-img img-fluid rounded" alt="hemishpere">
+          <figcaption class="figure-caption"><h3>
+            {{marsDoc.hemisphere_images[1].title}}</h3>
+          </figcaption>
+        </figure>
+      </div><!-- /second hemisphere  -->
+    </div>
+
+    <div class="hemi row">
+      <div class="col-sm-6">
+        <figure class="figure">
+          <img src="{{ marsDoc.hemisphere_images[2].img_url }}" 
+          class="figure-img img-fluid rounded" alt="hemishpere">
+          <figcaption class="figure-caption"><h3>
+            {{marsDoc.hemisphere_images[2].title}}</h3>
+          </figcaption>
+        </figure>
+      </div><!-- /third hemisphere  -->
+      <div class="col-sm-6">
+        <figure class="figure">
+          <img src="{{ marsDoc.hemisphere_images[3].img_url }}" 
+          class="figure-img img-fluid rounded" alt="hemishpere">
+          <figcaption class="figure-caption"><h3>
+            {{marsDoc.hemisphere_images[3].title}}</h3>
+          </figcaption>
+        </figure>
+      </div><!-- /fourth hemisphere  -->
+    </div>
+  </div><!-- /.container-fluid  -->
 </body>

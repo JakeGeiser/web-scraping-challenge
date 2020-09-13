@@ -1,3 +1,13 @@
-h1 {
-    color: black;
+.featuredImg {
+    max-width:100%;
+    max-height:100%;
+}
+
+.hemi {
+    padding:2% 2%;
+}
+
+.figure img {
+    max-width: 100%;
+    max-height: 100%;
 }
